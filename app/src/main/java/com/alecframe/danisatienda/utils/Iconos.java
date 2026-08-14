@@ -55,7 +55,9 @@ public class Iconos {
             new Icono("Cerdito", R.drawable.savings_24px, "savings_24px"),
             new Icono("Médicamentos", R.drawable.medication_24px, "medication_24px"),
             new Icono("Caja médica", R.drawable.medical_services_24px, "medical_services_24px"),
-            new Icono("Estetoscopio", R.drawable.stethoscope_24px, "stethoscope_24px")
+            new Icono("Estetoscopio", R.drawable.stethoscope_24px, "stethoscope_24px"),
+            new Icono("Cigarrillo", R.drawable.smoking_rooms_24px, "smoking_rooms_24px"),
+            new Icono("Vape", R.drawable.vaping_rooms_24px, "vaping_rooms_24px")
     );
 
     public static int getIdByName(String name) {

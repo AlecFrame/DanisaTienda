@@ -29,20 +29,22 @@
 
         <TextView
             android:id="@+id/tvCardCategoriaNombre"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Nombre de categoria"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardCategoriaActivo"
             app:layout_constraintStart_toEndOf="@+id/ivCardCategoriaFoto"
             app:layout_constraintTop_toTopOf="@+id/ivCardCategoriaFoto" />
 
         <TextView
             android:id="@+id/tvCardCategoriaEjemplos"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Ejemplos de categoria"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvCardCategoriaNombre"
             app:layout_constraintTop_toBottomOf="@+id/tvCardCategoriaNombre" />
 
@@ -58,7 +60,6 @@
             android:textColor="#9C000000"
             android:textStyle="bold"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

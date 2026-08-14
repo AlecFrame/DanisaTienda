@@ -38,6 +38,7 @@
             android:text="Gasto #ID - Categoría"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivCardGastoFoto"
             app:layout_constraintTop_toTopOf="parent" />
 
