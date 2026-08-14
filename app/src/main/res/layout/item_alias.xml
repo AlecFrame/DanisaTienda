@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/blue"
+    app:strokeWidth="2dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardAlias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivCardAliasFoto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/blue_medi_light"
+            android:paddingHorizontal="10dp"
+            android:src="@drawable/account_balance_24px"
+            app:tint="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCardAliasPropietario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardAliasValor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Alias"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardAliasActivo"
+            app:layout_constraintStart_toEndOf="@+id/ivCardAliasFoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardAliasBanco"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Banco"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardAliasActivo"
+            app:layout_constraintStart_toStartOf="@+id/tvCardAliasValor"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardAliasValor" />
+
+        <TextView
+            android:id="@+id/tvCardAliasPropietario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Propietario"
+            app:layout_constraintEnd_toEndOf="@+id/tvCardAliasActivo"
+            app:layout_constraintStart_toStartOf="@+id/tvCardAliasBanco"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardAliasBanco" />
+
+        <TextView
+            android:id="@+id/tvCardAliasActivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/red"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Inactivo"
+            android:textColor="#9C000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

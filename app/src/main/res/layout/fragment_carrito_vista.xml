@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/blue_very_light"
+    tools:context=".ui.ventas.CarritoVistaFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/fotoCarritoVista"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/blue_med_light"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/receipt_long_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCarritoVistaId"
+            app:tint="@color/blue" />
+
+        <TextView
+            android:id="@+id/tvCarritoVistaId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="#ID"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/fotoCarritoVista"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoVistaActivado" />
+
+        <TextView
+            android:id="@+id/tvCarritoVistaMontoTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Monto Total: $ 0"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoVistaTipoPago" />
+
+        <TextView
+            android:id="@+id/tvCarritoVistaTipoPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_white_transparent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:text="Tipo de pago"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fotoCarritoVista" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardViewCarritoVista"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="12dp"
+            android:visibility="visible"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btCarritoVistaDesactivar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoVistaMontoTotal"
+            app:strokeColor="#BDBDBD"
+            app:strokeWidth="1dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCarritoVista"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="true"
+                android:padding="8dp" />
+
+            <TextView
+                android:id="@+id/tvCargandoCarritoVista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="24dp"
+                android:text="Cangando productos del carrito..."
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvCarritoVistaFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Fecha: dd/mm/yy"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvCarritoVistaId"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoVistaId" />
+
+        <TextView
+            android:id="@+id/tvCarritoVistaHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Hora: hh:mm"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tvCarritoVistaId"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoVistaFecha" />
+
+        <TextView
+            android:id="@+id/tvCarritoVistaAlias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Alias: alias"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCarritoVistaTipoPago"
+            app:layout_constraintStart_toEndOf="@+id/tvCarritoVistaTipoPago"
+            app:layout_constraintTop_toTopOf="@+id/tvCarritoVistaTipoPago" />
+
+        <TextView
+            android:id="@+id/tvCarritoVistaActivado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/red"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:text="Esta venta está desactivada"
+            android:textColor="#5F0000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btCarritoVistaDesactivar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red_dark"
+            android:text="Desactivar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

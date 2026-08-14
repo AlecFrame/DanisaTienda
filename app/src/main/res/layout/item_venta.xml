@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardVentaAdapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/blue"
+    app:strokeWidth="2dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardVenta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivCardVentaFoto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/blue_light"
+            android:paddingHorizontal="10dp"
+            android:src="@drawable/receipt_long_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/blue" />
+
+        <TextView
+            android:id="@+id/tvCardVentaId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="#ID"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivCardVentaFoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardVentaTipoPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/gray_icon"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Tipo de pago"
+            android:textColor="#9C000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardVentaHora" />
+
+        <TextView
+            android:id="@+id/tvCardVentaPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="$ 10.000"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardVentaAlias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="Alias: alias"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCardVentaTipoPago"
+            app:layout_constraintStart_toEndOf="@+id/tvCardVentaTipoPago"
+            app:layout_constraintTop_toTopOf="@+id/tvCardVentaTipoPago" />
+
+        <TextView
+            android:id="@+id/tvCardVentaActivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/red"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="6dp"
+            android:text="INACTIVO"
+            android:textColor="#5D0707"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardVentaFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="fecha: dd/mm/yy"
+            app:layout_constraintStart_toStartOf="@+id/tvCardVentaId"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardVentaId" />
+
+        <TextView
+            android:id="@+id/tvCardVentaHora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hora: hh:mm"
+            app:layout_constraintStart_toStartOf="@+id/tvCardVentaFecha"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardVentaFecha" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

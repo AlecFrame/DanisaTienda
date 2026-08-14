@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue">#FF3636E2</color>
+    <color name="blue_light">#FF579BFA</color>
+    <color name="blue_med_light">#8EBAFD</color>
+    <color name="blue_medi_light">#C8DEFB</color>
+    <color name="blue_very_light">#FFECF4FE</color>
+    <color name="black_blue">#FF171A1F</color>
+
+    <color name="gray_background">#FFF9FAFB</color>
+    <color name="gray_background2">#FFF3F4F6</color>
+    <color name="gray_light">#E0E2E9</color>
+    <color name="gray_light1">#C1C6D1</color>
+    <color name="gray_icon">#FFA5A9B1</color>
+    <color name="gray_icon2">#656C76</color>
+    <color name="gray_icon3">#FF535A66</color>
+
+    <color name="green_light">#57FA62</color>
+    <color name="yellow_light">#F6D051</color>
+    <color name="red_light">#F65151</color>
+
+    <color name="orange_advertence">#FF9500</color>
+
+    <color name="green_dark">#24AD50</color>
+    <color name="yellow_dark">#AD6F24</color>
+    <color name="red_dark">#AD2424</color>
+
+    <color name="green">#0FC74D</color>
+    <color name="red">#FFF20D0D</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

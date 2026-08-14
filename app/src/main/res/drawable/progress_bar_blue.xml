@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 1. Fondo de la barra de progreso -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="8dp" />
+            <solid android:color="@color/blue_very_light" />
+        </shape>
+    </item>
+
+    <!-- 2. Progreso secundario (opcional, útil para streaming) -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <corners android:radius="8dp" />
+                <solid android:color="#B0BEC5" />
+            </shape>
+        </clip>
+    </item>
+
+    <!-- 3. Barra de progreso principal -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="8dp" />
+                <solid android:color="@color/blue" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

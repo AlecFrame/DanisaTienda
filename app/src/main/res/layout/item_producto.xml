@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardProductoAdapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/blue"
+    app:strokeWidth="2dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardProducto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivCardProductoFoto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_white_transparent"
+            android:paddingHorizontal="10dp"
+            android:src="@drawable/remove_24px"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCardProductoCategoria"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardProductoNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Nombre del producto"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardProductoActivo"
+            app:layout_constraintStart_toEndOf="@+id/ivCardProductoFoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardProductoCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/gray_icon"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Categoría"
+            android:textColor="#9C000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCardProductoDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoDescripcion" />
+
+        <TextView
+            android:id="@+id/tvCardProductoPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/attach_money_24px"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/green_dark"
+            android:gravity="center"
+            android:text="0.00"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoCategoria" />
+
+        <TextView
+            android:id="@+id/tvCardProductoStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/box_add_24px"
+            android:drawablePadding="8dp"
+            android:drawableTint="#AD7824"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoPrecio" />
+
+        <TextView
+            android:id="@+id/tvCardProductoSinStockAdvertencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:drawableStart="@drawable/error_24px"
+            android:drawableTint="@color/orange_advertence"
+            android:gravity="center"
+            android:text="Stock bajo"
+            android:textColor="@color/orange_advertence"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvCardProductoStock"
+            app:layout_constraintTop_toTopOf="@+id/tvCardProductoStock" />
+
+        <TextView
+            android:id="@+id/tvCardProductoActivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/red"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="INACTIVO"
+            android:textColor="#92000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btCardProductoVerDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:text="Ver detalle"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:strokeColor="@color/blue"
+            app:strokeWidth="2dp" />
+
+        <TextView
+            android:id="@+id/tvCardProductoDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Descripcion del producto"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardProductoActivo"
+            app:layout_constraintStart_toStartOf="@+id/tvCardProductoNombre"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoNombre" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

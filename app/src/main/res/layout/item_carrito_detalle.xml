@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardCarritoDetalleAdapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardCarritoDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivCardCarritoDetalleFoto"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_white_transparent"
+            android:paddingHorizontal="10dp"
+            android:src="@drawable/remove_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardCarritoDetalleNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Nombre del producto"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivCardCarritoDetalleFoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardCarritoDetalleSubTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="$ 0"
+            android:textColor="@color/green_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCardCarritoDetalleCantidad2" />
+
+        <TextView
+            android:id="@+id/tvCardCarritoDetalleCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="Cantidad:"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCardCarritoDetalleCantidad2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardCarritoDetalleCantidad2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/yellow_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvCardCarritoDetalleCantidad"
+            app:layout_constraintTop_toBottomOf="@+id/ivCardCarritoDetalleFoto" />
+
+        <TextView
+            android:id="@+id/tvCardCarritoDetallePrecioUnitario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Precio unitario: $ 0"
+            android:textColor="@color/gray_icon3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvCardCarritoDetalleNombre"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardCarritoDetalleNombre" />
+
+        <TextView
+            android:id="@+id/tvCardCarritoDetalleSubtTotal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="SubTotal:"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCardCarritoDetalleCantidad2"
+            app:layout_constraintEnd_toStartOf="@+id/tvCardCarritoDetalleSubTotal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

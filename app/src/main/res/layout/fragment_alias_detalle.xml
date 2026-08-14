@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.alias.AliasDetalleFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivAliasDetalle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/blue_medi_light"
+            android:paddingHorizontal="13dp"
+            android:src="@drawable/account_balance_24px"
+            app:tint="@color/blue"
+            app:layout_constraintBottom_toTopOf="@+id/llAliasInferiorVer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.13999999" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etAliasValor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:enabled="false"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextColor="@color/gray_icon3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAliasDetalle"
+            app:startIconDrawable="@drawable/credit_card_24px"
+            app:startIconTint="@color/gray_icon3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAliasValorInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alias"
+                android:textColor="@color/black_blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etAliasBanco"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:enabled="false"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextColor="@color/gray_icon3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAliasValor"
+            app:startIconDrawable="@drawable/account_balance_24px"
+            app:startIconTint="@color/gray_icon3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAliasBancoInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del banco"
+                android:textColor="@color/black_blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etAliasPropietario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:enabled="false"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextColor="@color/gray_icon3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAliasBanco"
+            app:startIconDrawable="@drawable/account_box_24px"
+            app:startIconTint="@color/gray_icon3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAliasPropietarioInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Propietario"
+                android:textColor="@color/black_blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/llAliasInferiorVer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btAliasEditar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green_dark"
+                android:text="Editar" />
+
+            <Button
+                android:id="@+id/btAliasActivar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red_dark"
+                android:text="inactivar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAliasInferiorEditar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btAliasGuardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green_dark"
+                android:text="Guardar" />
+
+            <Button
+                android:id="@+id/btAliasCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_very_light"
+                android:text="Cancelar"
+                android:textColor="@color/blue"
+                android:textColorHighlight="@color/blue"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAliasDetalleActivado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/red"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:text="Este alias está desactivado"
+            android:textColor="#5F0000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etAliasPropietario" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

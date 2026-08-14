@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/inicioFragment">
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.alecframe.danisatienda.ui.inicio.InicioFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_productoDetalleFragment"
+            app:destination="@id/productoDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inventarioFragment"
+        android:name="com.alecframe.danisatienda.ui.inventario.InventarioFragment"
+        android:label="Inventario"
+        tools:layout="@layout/fragment_inventario" >
+        <action
+            android:id="@+id/action_inventarioFragment_to_productoDetalleFragment"
+            app:destination="@id/productoDetalleFragment" />
+        <action
+            android:id="@+id/action_inventarioFragment_to_productoNuevoFragment"
+            app:destination="@id/productoNuevoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actividadFragment"
+        android:name="com.alecframe.danisatienda.ui.actividad.ActividadFragment"
+        android:label="Actividades"
+        tools:layout="@layout/fragment_actividad" />
+    <fragment
+        android:id="@+id/aliasFragment"
+        android:name="com.alecframe.danisatienda.ui.alias.AliasFragment"
+        android:label="Alias almacenados"
+        tools:layout="@layout/fragment_alias" >
+        <action
+            android:id="@+id/action_aliasFragment_to_aliasDetalleFragment"
+            app:destination="@id/aliasDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="com.alecframe.danisatienda.ui.ventas.CarritoFragment"
+        android:label="Registrar venta"
+        tools:layout="@layout/fragment_carrito" >
+        <action
+            android:id="@+id/action_carritoFragment_to_ventasFragment"
+            app:destination="@id/ventasFragment" />
+        <action
+            android:id="@+id/action_carritoFragment_to_carritoDetalleFragment"
+            app:destination="@id/carritoDetalleFragment" />
+        <action
+            android:id="@+id/action_carritoFragment_to_carritoProductoFragment"
+            app:destination="@id/carritoProductoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaDetalleFragment"
+        android:name="com.alecframe.danisatienda.ui.categorias.CategoriaDetalleFragment"
+        android:label="Categoría Detalle"
+        tools:layout="@layout/fragment_categoria_detalle" >
+        <action
+            android:id="@+id/action_categoriaDetalleFragment_to_categoriasFragment"
+            app:destination="@id/categoriasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriasFragment"
+        android:name="com.alecframe.danisatienda.ui.categorias.CategoriasFragment"
+        android:label="Categorías"
+        tools:layout="@layout/fragment_categorias" >
+        <action
+            android:id="@+id/action_categoriasFragment_to_categoriaDetalleFragment"
+            app:destination="@id/categoriaDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoDetalleFragment"
+        android:name="com.alecframe.danisatienda.ui.producto.ProductoDetalleFragment"
+        android:label="Producto Detalle"
+        tools:layout="@layout/fragment_producto_detalle" >
+        <action
+            android:id="@+id/action_productoDetalleFragment_to_inventarioFragment"
+            app:destination="@id/inventarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoNuevoFragment"
+        android:name="com.alecframe.danisatienda.ui.producto.ProductoNuevoFragment"
+        android:label="Nuevo Producto"
+        tools:layout="@layout/fragment_producto_nuevo" >
+        <action
+            android:id="@+id/action_productoNuevoFragment_to_inventarioFragment"
+            app:destination="@id/inventarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ventasFragment"
+        android:name="com.alecframe.danisatienda.ui.ventas.VentasFragment"
+        android:label="Ventas"
+        tools:layout="@layout/fragment_ventas" >
+        <action
+            android:id="@+id/action_ventasFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+        <action
+            android:id="@+id/action_ventasFragment_to_carritoVistaFragment"
+            app:destination="@id/carritoVistaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aliasDetalleFragment"
+        android:name="com.alecframe.danisatienda.ui.alias.AliasDetalleFragment"
+        android:label="Alias Detalle"
+        tools:layout="@layout/fragment_alias_detalle" >
+        <action
+            android:id="@+id/action_aliasDetalleFragment_to_aliasFragment"
+            app:destination="@id/aliasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carritoDetalleFragment"
+        android:name="com.alecframe.danisatienda.ui.ventas.CarritoDetalleFragment"
+        android:label="Detalle del producto"
+        tools:layout="@layout/fragment_carrito_detalle" >
+        <action
+            android:id="@+id/action_carritoDetalleFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+        <action
+            android:id="@+id/action_carritoDetalleFragment_to_carritoProductoFragment"
+            app:destination="@id/carritoProductoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carritoProductoFragment"
+        android:name="com.alecframe.danisatienda.ui.ventas.CarritoProductoFragment"
+        android:label="Producto para la venta"
+        tools:layout="@layout/fragment_carrito_producto" >
+        <action
+            android:id="@+id/action_carritoProductoFragment_to_carritoDetalleFragment"
+            app:destination="@id/carritoDetalleFragment" />
+        <action
+            android:id="@+id/action_carritoProductoFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroVentasFragment"
+        android:name="com.alecframe.danisatienda.ui.registroVentas.RegistroVentasFragment"
+        android:label="Reportes"
+        tools:layout="@layout/fragment_registro_ventas" />
+    <fragment
+        android:id="@+id/carritoVistaFragment"
+        android:name="com.alecframe.danisatienda.ui.ventas.CarritoVistaFragment"
+        android:label="Venta Detalle"
+        tools:layout="@layout/fragment_carrito_vista" >
+        <action
+            android:id="@+id/action_carritoVistaFragment_to_ventasFragment"
+            app:destination="@id/ventasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuracionFragment"
+        android:name="com.alecframe.danisatienda.ui.configuracion.ConfiguracionFragment"
+        android:label="Configuración"
+        tools:layout="@layout/fragment_configuracion" />
+    <fragment
+        android:id="@+id/gastoDetalleFragment"
+        android:name="com.alecframe.danisatienda.ui.gasto.GastoDetalleFragment"
+        android:label="Detalle del gasto"
+        tools:layout="@layout/fragment_gasto_detalle" >
+        <action
+            android:id="@+id/action_gastoDetalleFragment_to_gastosFragment"
+            app:destination="@id/gastosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gastosFragment"
+        android:name="com.alecframe.danisatienda.ui.gasto.GastosFragment"
+        android:label="Gastos"
+        tools:layout="@layout/fragment_gastos" >
+        <action
+            android:id="@+id/action_gastosFragment_to_gastoDetalleFragment"
+            app:destination="@id/gastoDetalleFragment" />
+    </fragment>
+</navigation>

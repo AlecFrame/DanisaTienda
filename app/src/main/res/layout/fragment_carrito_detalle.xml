@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ventas.CarritoDetalleFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/fotoCarritoDetalle"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_white_transparent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/remove_24px"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCarritoDetalleStock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCarritoDetalleNombre"
+            app:shapeAppearanceOverlay="@style/RectangleImage" />
+
+        <TextView
+            android:id="@+id/tvCarritoDetalleNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Nombre del producto"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/llCarritoDetalleInferior"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fotoCarritoDetalle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.060000002" />
+
+        <TextView
+            android:id="@+id/tvCarritoDetalleDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Descripción del producto"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvCarritoDetalleNombre"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoDetalleNombre" />
+
+        <TextView
+            android:id="@+id/tvCarritoProductoCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_white_transparent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:text="Categoría"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCarritoDetalleDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoDetalleStock" />
+
+        <TextView
+            android:id="@+id/tvCarritoDetallePrecioUnitario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Precio Unitario: $ 0"
+            android:textColor="@color/green_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCarritoDetalleDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoDetalleDescripcion" />
+
+        <TextView
+            android:id="@+id/tvCarritoDetalleStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Stock: 0"
+            android:textColor="@color/yellow_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCarritoDetalleDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoDetallePrecioUnitario" />
+
+        <View
+            android:id="@+id/dividerCarritoDetalle"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCarritoProductoCategoria" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etCarritoDetalleSubTotal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:enabled="true"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="?attr/colorPrimary"
+            app:hintTextColor="@color/gray_icon3"
+            app:layout_constraintEnd_toStartOf="@+id/btCarritoDetalleCalcular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCarritoDetalleCantidad"
+            app:startIconDrawable="@drawable/attach_money_24px"
+            app:startIconTint="@color/gray_icon3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCarritoDetalleSubTotalInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="SubTotal"
+                android:inputType="number"
+                android:text="0"
+                android:textColor="@color/black_blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btCarritoDetalleCalcular"
+            android:layout_width="55dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/blue_very_light"
+            android:drawableEnd="@drawable/calculate_24px"
+            android:drawableTint="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/etCarritoDetalleSubTotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etCarritoDetalleSubTotal"
+            app:strokeColor="@color/blue"
+            app:strokeWidth="2dp" />
+
+        <LinearLayout
+            android:id="@+id/llCarritoDetalleInferior"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btCarritoDetalleAgregar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green_dark"
+                android:text="Agregar" />
+
+            <Button
+                android:id="@+id/btCarritoDetalleCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_very_light"
+                android:text="Cancelar"
+                android:textColor="@color/blue"
+                android:textColorHighlight="@color/blue"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btCarritoDetalleEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red_dark"
+            android:text="Eliminar del carrito"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/llCarritoDetalleInferior"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llCarritoDetalleCantidad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerCarritoDetalle">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etCarritoDetalleCantidad"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:enabled="true"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxStrokeColor="?attr/colorPrimary"
+                app:hintTextColor="@color/gray_icon3"
+                app:layout_constraintEnd_toStartOf="@+id/btCarritoDetalleAgregarCantidad"
+                app:layout_constraintStart_toEndOf="@+id/btCarritoDetalleQuitarCantidad"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/shopping_bag_24px"
+                app:startIconTint="@color/gray_icon3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCarritoDetalleCantidadInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cantidad"
+                    android:inputType="number"
+                    android:text="0"
+                    android:textColor="@color/black_blue" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btCarritoDetalleAgregarCantidad"
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/blue"
+                android:drawableEnd="@drawable/keyboard_arrow_up_24px"
+                android:drawableTint="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etCarritoDetalleCantidad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etCarritoDetalleCantidad" />
+
+            <Button
+                android:id="@+id/btCarritoDetalleQuitarCantidad"
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/blue"
+                android:drawableEnd="@drawable/keyboard_arrow_down_24px"
+                android:drawableTint="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etCarritoDetalleCantidad"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etCarritoDetalleCantidad"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llCarritoDetalleGramo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerCarritoDetalle">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etCarritoDetalleGramos"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:enabled="true"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxStrokeColor="?attr/colorPrimary"
+                app:hintTextColor="@color/gray_icon3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/scale_24px"
+                app:startIconTint="@color/gray_icon3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCarritoDetalleGramosInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Gramos"
+                    android:inputType="number"
+                    android:text="0"
+                    android:textColor="@color/black_blue" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardGastoAdapter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/red"
+    app:strokeWidth="2dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardGasto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivCardGastoFoto"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_white_transparent"
+            android:backgroundTint="@color/red_light"
+            android:paddingHorizontal="10dp"
+            android:src="@drawable/attach_money_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/red_dark" />
+
+        <TextView
+            android:id="@+id/tvCardGastoId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Gasto #ID - Categoría"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivCardGastoFoto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCardGastoFecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="dd/mm/yy : hh:mm:ss"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardGastoDescripcion" />
+
+        <TextView
+            android:id="@+id/tvCardGastoMonto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="monto: $0"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/dividerGasto"
+            app:layout_constraintTop_toBottomOf="@+id/dividerGasto" />
+
+        <TextView
+            android:id="@+id/tvCardGastoDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="descripcion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvCardGastoDescripcion2"
+            app:layout_constraintTop_toTopOf="@+id/tvCardGastoDescripcion2" />
+
+        <View
+            android:id="@+id/dividerGasto"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvCardGastoId"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardGastoId" />
+
+        <TextView
+            android:id="@+id/tvCardGastoDescripcion2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="descripcion: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardGastoMonto" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

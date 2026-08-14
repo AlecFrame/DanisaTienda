@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/inicioFragment"
+            android:icon="@drawable/home_24px_otro"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/inventarioFragment"
+            android:icon="@drawable/box_add_24px"
+            android:title="Inventario" />
+        <item
+            android:id="@+id/ventasFragment"
+            android:icon="@drawable/add_shopping_cart_24px"
+            android:title="Ventas" />
+        <item
+            android:id="@+id/categoriasFragment"
+            android:icon="@drawable/sell_24px"
+            android:title="Categorias" />
+        <item
+            android:id="@+id/aliasFragment"
+            android:icon="@drawable/multiple_stop_24px"
+            android:title="Alias almacenados" />
+        <item
+            android:id="@+id/gastosFragment"
+            android:icon="@drawable/attach_money_24px"
+            android:title="Gastos" />
+        <item
+            android:id="@+id/registroVentasFragment"
+            android:icon="@drawable/receipt_long_24px"
+            android:title="Reportes" />
+        <item
+            android:id="@+id/actividadFragment"
+            android:icon="@drawable/group_24px"
+            android:title="Registro de actividades" />
+        <item
+            android:id="@+id/configuracionFragment"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Configuración" />
+    </group>
+</menu>
