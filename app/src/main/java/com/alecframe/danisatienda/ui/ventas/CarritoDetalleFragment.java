@@ -161,7 +161,7 @@ public class CarritoDetalleFragment extends Fragment {
                 b.fotoCarritoDetalle.setImageResource(Iconos.getIdByName(categoria.getDrawable()));
             } else {
                 Glide.with(getContext())
-                        .load(ApiClient.BASE_URL + categoria.getFoto())
+                        .load(UtilsD.getURLImagen("productos", p.getFoto()))
                         .placeholder(R.drawable.remove_24px)
                         .error(R.drawable.block_24px)
                         .into(b.fotoCarritoDetalle);
