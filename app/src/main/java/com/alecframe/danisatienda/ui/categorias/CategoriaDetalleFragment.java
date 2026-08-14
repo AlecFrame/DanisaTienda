@@ -36,6 +36,7 @@ import com.alecframe.danisatienda.request.ApiClient;
 import com.alecframe.danisatienda.ui.adapters.SpinnerIconoAdapter;
 import com.alecframe.danisatienda.utils.Icono;
 import com.alecframe.danisatienda.utils.Iconos;
+import com.alecframe.danisatienda.utils.UtilsD;
 import com.bumptech.glide.Glide;
 
 import java.util.Objects;
@@ -53,6 +54,7 @@ public class CategoriaDetalleFragment extends Fragment {
     private Categoria categoriaActual;
     private String drawableNameActual = "remove_24px";
     private Uri fotoUri = null;
+    private int spinnerItemIndex = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -199,7 +201,7 @@ public class CategoriaDetalleFragment extends Fragment {
             vm.limpiarFotoUri();
         }else {
             Glide.with(getContext())
-                    .load(ApiClient.BASE_URL + categoria.getFoto())
+                    .load(UtilsD.getURLImagen("categorias",categoria.getFoto()))
                     .placeholder(R.drawable.remove_24px)
                     .error(R.drawable.block_24px)
                     .into(b.ivCategoriaFotoVer);
@@ -233,10 +235,13 @@ public class CategoriaDetalleFragment extends Fragment {
         b.spCategoriaIcono.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Icono icono = (Icono) parent.getItemAtPosition(position);
-                setCategoriaIcono(icono.getDrawable());
-                drawableNameActual = icono.getDrawableNombre();
-                comprobarCambios();
+                if (spinnerItemIndex!=position) {
+                    spinnerItemIndex = position;
+                    Icono icono = (Icono) parent.getItemAtPosition(position);
+                    setCategoriaIcono(icono.getDrawable());
+                    drawableNameActual = icono.getDrawableNombre();
+                    comprobarCambios();
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}

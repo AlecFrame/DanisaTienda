@@ -24,6 +24,7 @@ public class GastoDetalleFragment extends Fragment {
     private GastoDetalleViewModel vm;
     private FragmentGastoDetalleBinding b;
     private String categoria = "Otros";
+    private int spinnerCategoriaIndex = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -69,7 +70,10 @@ public class GastoDetalleFragment extends Fragment {
         b.spGastoNuevoCategorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                categoria = (String) parent.getItemAtPosition(position);
+                if (spinnerCategoriaIndex!=position) {
+                    spinnerCategoriaIndex = position;
+                    categoria = (String) parent.getItemAtPosition(position);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}

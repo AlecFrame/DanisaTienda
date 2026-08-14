@@ -21,6 +21,7 @@ import com.alecframe.danisatienda.R;
 import com.alecframe.danisatienda.model.Categoria;
 import com.alecframe.danisatienda.request.ApiClient;
 import com.alecframe.danisatienda.utils.Iconos;
+import com.alecframe.danisatienda.utils.UtilsD;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -52,9 +53,8 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.Cate
 
         if (categoria.getFoto()!=null) {
             Glide.with(context)
-                    .load(ApiClient.BASE_URL + categoria.getFoto())
-                    .into(holder.foto
-                    );
+                    .load(UtilsD.getURLImagen("categorias",categoria.getFoto()))
+                    .into(holder.foto);
         } else {
             holder.foto.setImageResource(Iconos.getIdByName(categoria.getDrawable()));
             holder.foto.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));

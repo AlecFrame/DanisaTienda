@@ -65,9 +65,8 @@ public class CarritoVistaAdapter extends RecyclerView.Adapter<CarritoVistaAdapte
 
         if (producto.getFoto() != null) {
             Glide.with(context)
-                    .load(ApiClient.BASE_URL + producto.getFoto())
-                    .into(holder.foto
-                    );
+                    .load(UtilsD.getURLImagen("productos",producto.getFoto()))
+                    .into(holder.foto);
         } else {
             if (categoria != null) {
                 holder.foto.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));

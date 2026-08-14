@@ -62,7 +62,7 @@ public class VentaAdapter extends RecyclerView.Adapter<VentaAdapter.VentaCardHol
             holder.alias.setVisibility(INVISIBLE);
         }
 
-        if (alias!=null) { holder.alias.setText("Alias: "+alias.getValor()); }
+        if (alias!=null) { holder.alias.setText("alias: "+alias.getValor()); }
         holder.precio.setText("$ "+ UtilsD.decimalFormat(carrito.getMontoTotal()));
 
         if (venta.getEstado()==1) {

@@ -52,6 +52,8 @@ public class ProductoDetalleFragment extends Fragment {
     private Producto productoActual = null;
     private int estado = 1;
     private String unidad = "Unidad";
+    private int spinnerCategoriaIndex = 0;
+    private int spinnerUnidadIndex = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -157,6 +159,16 @@ public class ProductoDetalleFragment extends Fragment {
             }
         });
 
+        vm.getCategoria().observe(getViewLifecycleOwner(), c -> {
+            if (c!=null) {
+                categoria = c;
+                b.tvProductoCategoria.setText(categoria.getNombre());
+                b.tvProductoCategoria.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));
+            }else {
+                Toast.makeText(getContext(), "Categoria no cargada", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         vm.recuperarDatos(getArguments());
     }
 
@@ -172,8 +184,10 @@ public class ProductoDetalleFragment extends Fragment {
         categoria = producto.getCategoria();
         unidad = producto.getUnidad();
         if (categoria==null) {
-            Toast.makeText(getContext(), "Categoria del producto no cargada", Toast.LENGTH_SHORT).show();
-            return;
+            procesoCambioEnCurso();
+            vm.cargarCategoria(producto.getIdCategoria());
+        }else {
+            vm.setCategoria(categoria);
         }
 
         b.etProductoNombreInput.setText(producto.getNombre());
@@ -191,14 +205,11 @@ public class ProductoDetalleFragment extends Fragment {
             vm.limpiarFotoUri();
         }else {
             Glide.with(getContext())
-                    .load(ApiClient.BASE_URL + categoria.getFoto())
+                    .load(UtilsD.getURLImagen("productos",producto.getFoto()))
                     .placeholder(R.drawable.remove_24px)
                     .error(R.drawable.block_24px)
                     .into(b.fotoProductoDetalleVer);
         }
-
-        b.tvProductoCategoria.setText(categoria.getNombre());
-        b.tvProductoCategoria.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));
 
         if (unidad.equals("Gramo")) {
             b.etProductoStock.setHint("Stock en gramos");
@@ -217,12 +228,15 @@ public class ProductoDetalleFragment extends Fragment {
         b.spProductoCategorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                categoria = (Categoria) parent.getItemAtPosition(position);
-                if (productoActual.getFoto() == null && fotoUri==null) {
-                    b.fotoProductoDetalle.setImageResource(Iconos.getIdByName(categoria.getDrawable()));
-                    b.fotoProductoDetalle.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));
+                if (spinnerCategoriaIndex!=position) {
+                    spinnerCategoriaIndex = position;
+                    categoria = (Categoria) parent.getItemAtPosition(position);
+                    if (productoActual.getFoto() == null && fotoUri == null) {
+                        b.fotoProductoDetalle.setImageResource(Iconos.getIdByName(categoria.getDrawable()));
+                        b.fotoProductoDetalle.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));
+                    }
+                    comprobarCambios();
                 }
-                comprobarCambios();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
@@ -235,17 +249,20 @@ public class ProductoDetalleFragment extends Fragment {
         b.spProductoUnidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                unidad = (String) parent.getItemAtPosition(position);
-                if (unidad.equals("Gramo")) {
-                    b.etProductoStock.setHint("Stock en gramos");
-                    b.etProductoStockMinimo.setHint("Stock mínimo en gramos");
-                    Log.d("ProductoDetalle", "Gramo, hint: "+b.etProductoStockInput.getHint());
-                }else {
-                    b.etProductoStock.setHint("Stock actual");
-                    b.etProductoStockMinimo.setHint("Stock mínimo");
-                    Log.d("ProductoDetalle", "Unidad, hint: "+b.etProductoStockInput.getHint());
+                if (spinnerUnidadIndex!=position) {
+                    spinnerUnidadIndex = position;
+                    unidad = (String) parent.getItemAtPosition(position);
+                    if (unidad.equals("Gramo")) {
+                        b.etProductoStock.setHint("Stock en gramos");
+                        b.etProductoStockMinimo.setHint("Stock mínimo en gramos");
+                        Log.d("ProductoDetalle", "Gramo, hint: " + b.etProductoStockInput.getHint());
+                    } else {
+                        b.etProductoStock.setHint("Stock actual");
+                        b.etProductoStockMinimo.setHint("Stock mínimo");
+                        Log.d("ProductoDetalle", "Unidad, hint: " + b.etProductoStockInput.getHint());
+                    }
+                    comprobarCambios();
                 }
-                comprobarCambios();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
@@ -322,7 +339,7 @@ public class ProductoDetalleFragment extends Fragment {
     }
     public void comprobarCambios() {
         if (viewMode.equals("editar")) {
-            if (productoActual != null) {
+            if (productoActual != null && categoria != null) {
                 boolean noHayCambio =
                         b.etProductoNombre.getEditText().getText().toString().equals(productoActual.getNombre()) &
                         (b.etProductoDescripcion.getEditText().getText().toString().equals(productoActual.getDescripcion())

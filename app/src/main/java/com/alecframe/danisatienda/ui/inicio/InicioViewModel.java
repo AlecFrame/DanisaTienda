@@ -91,13 +91,7 @@ public class InicioViewModel extends AndroidViewModel {
     public void cargarListaAcciones() {
         ApiServiceAuditorias servicio = ApiClient.getApiServiceAuditorias();
 
-        Call<List<Auditoria>> call = servicio.obtenerAuditorias(
-                null,
-                null,
-                null,
-                null,
-                null
-        );
+        Call<List<Auditoria>> call = servicio.listarAuditoriasRecientes();
 
         call.enqueue(new Callback<>() {
             @Override

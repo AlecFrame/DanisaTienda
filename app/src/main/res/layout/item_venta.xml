@@ -54,7 +54,7 @@
             android:textColor="#9C000000"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCardVentaHora" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCardVentaAlias" />
 
         <TextView
             android:id="@+id/tvCardVentaPrecio"
@@ -73,14 +73,12 @@
             android:id="@+id/tvCardVentaAlias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:drawablePadding="8dp"
             android:gravity="center"
             android:text="Alias: alias"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvCardVentaTipoPago"
-            app:layout_constraintStart_toEndOf="@+id/tvCardVentaTipoPago"
-            app:layout_constraintTop_toTopOf="@+id/tvCardVentaTipoPago" />
+            app:layout_constraintStart_toStartOf="@+id/tvCardVentaId"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardVentaHora" />
 
         <TextView
             android:id="@+id/tvCardVentaActivo"

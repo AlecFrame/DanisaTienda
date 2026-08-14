@@ -10,6 +10,7 @@ public class CrearVentaRequest implements Serializable {
     private final Integer idAlias;
     private final Double montoTotal;
     private final List<CarritoDetalle> detalles;
+    private final String usuario = ApiClient.USUARIO;
 
     public CrearVentaRequest(String tipoPago, Integer idAlias, Double montoTotal,
                              List<CarritoDetalle> detalles) {
@@ -33,6 +34,9 @@ public class CrearVentaRequest implements Serializable {
 
     public List<CarritoDetalle> getDetalles() {
         return detalles;
+    }
+    public String getUsuario() {
+        return usuario;
     }
 
     @Override

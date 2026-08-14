@@ -16,16 +16,17 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivCardReporteProductoFoto"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/button_white_transparent"
-            android:paddingHorizontal="10dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/remove_24px"
             app:layout_constraintStart_toEndOf="@+id/tvCardReportProductoTop"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RectangleImage" />
 
         <TextView
             android:id="@+id/tvCardReporteProductoNombre"

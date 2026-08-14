@@ -19,6 +19,7 @@ import com.alecframe.danisatienda.model.Producto;
 import com.alecframe.danisatienda.request.ApiClient;
 import com.alecframe.danisatienda.request.ReporteProducto;
 import com.alecframe.danisatienda.utils.Iconos;
+import com.alecframe.danisatienda.utils.UtilsD;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -57,9 +58,8 @@ public class ReporteProductoAdapter extends RecyclerView.Adapter<ReporteProducto
 
         if (producto.getFoto()!=null) {
             Glide.with(context)
-                    .load(ApiClient.BASE_URL + producto.getFoto())
-                    .into(holder.foto
-                    );
+                    .load(UtilsD.getURLImagen("productos",producto.getFoto()))
+                    .into(holder.foto);
         } else {
             if (categoria!=null) {
                 holder.foto.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));

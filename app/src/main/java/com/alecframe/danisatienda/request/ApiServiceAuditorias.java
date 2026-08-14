@@ -21,6 +21,8 @@ public interface ApiServiceAuditorias {
             @Query("fechaHasta") String fechaHasta,
             @Query("usuario") String usuario
     );
+    @GET("api/auditorias/recientes") // GET /auditorias?
+    Call<List<Auditoria>> listarAuditoriasRecientes();
     @GET("api/auditorias/{id}") // GET /auditorias/5
     Call<Auditoria> obtenerAuditoria(
             @Path("id") int id

@@ -1,6 +1,6 @@
 package com.alecframe.danisatienda.utils;
 
-import android.util.Log;
+import com.alecframe.danisatienda.request.ApiClient;
 
 import java.text.DecimalFormat;
 import java.time.Instant;
@@ -13,6 +13,10 @@ public class UtilsD {
 
     public static String decimalFormat(double number) {
         return DECIMAL_FORMAT.format(number);
+    }
+
+    public static String getURLImagen(String entidads, String URL) {
+        return ApiClient.BASE_URL+"/uploads/"+entidads+"/"+URL;
     }
 
     public static String getFechaEntera(Instant fecha) {

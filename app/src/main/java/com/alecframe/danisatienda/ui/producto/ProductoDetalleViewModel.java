@@ -38,6 +38,7 @@ import retrofit2.Response;
 public class ProductoDetalleViewModel extends AndroidViewModel {
     private final MutableLiveData<String> mToastMessage = new MutableLiveData<>();
     private final MutableLiveData<Producto> mProducto = new MutableLiveData<>();
+    private final MutableLiveData<Categoria> mCategoria = new MutableLiveData<>();
     private final MutableLiveData<List<Categoria>> mListaCategorias = new MutableLiveData<>();
     private final MutableLiveData<Uri> mFotoUri = new MutableLiveData<>();
     private final MutableLiveData<Boolean> mProcesoTerminado = new MutableLiveData<>();
@@ -53,6 +54,9 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
     public LiveData<Producto> getProducto() {
         return mProducto;
     }
+    public LiveData<Categoria> getCategoria() {
+        return mCategoria;
+    }
     public LiveData<List<Categoria>> getListaCategorias() {
         return mListaCategorias;
     }
@@ -61,6 +65,9 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
     }
     public LiveData<Boolean> getProcesoTerminado() {
         return mProcesoTerminado;
+    }
+    public void setCategoria(Categoria categoria) {
+        mCategoria.setValue(categoria);
     }
     public void cargarSpinnerCategorias() {
         ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
@@ -131,6 +138,30 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
     }
     public void setViewMode(String viewMode) {
         mViewMode.setValue(viewMode);
+    }
+    public void cargarCategoria(int idCategoria) {
+        ApiServiceCategorias api = ApiClient.getApiServiceCategorias();
+
+        Call<Categoria> calls = api.obtenerCategoria(idCategoria);
+
+        calls.enqueue(new Callback<>() {
+            @Override
+            public void onResponse(Call<Categoria> call, Response<Categoria> response) {
+                if (response.isSuccessful()) {
+                    mCategoria.postValue(response.body());
+                } else {
+                    mToastMessage.postValue("Error al cargar la categoría");
+                    mProcesoTerminado.postValue(true);
+                }
+            }
+            @Override
+            public void onFailure(Call<Categoria> call, Throwable t) {
+                mToastMessage.postValue("Error del servidor.");
+                mProcesoTerminado.postValue(true);
+                Log.d("CARGAR CATEGORIA ERROR", "FOTO_URI: call: " + call);
+                Log.d("CARGAR CATEGORIA ERROR", "FOTO_URI: throwable: " + t);
+            }
+        });
     }
     public void actualizarProducto(String nombre, String descripcion, int idCategoria, String unidad, String precioS, String costoCompraS, String stockS, String stockBajoS){
         if (mProducto.getValue()==null) {
@@ -210,10 +241,6 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
                                 mViewMode.postValue("ver");
                             } else {
                                 mToastMessage.postValue("Error al actualizar el producto");
-                                Log.d("PRODUCTO DETALLE ERROR", "responseHeaders: "+response.headers());
-                                Log.d("PRODUCTO DETALLE ERROR", "responseMessage: "+response.message());
-                                Log.d("PRODUCTO DETALLE ERROR", "responseBody: "+response.body());
-                                Log.d("PRODUCTO DETALLE ERROR", "responseErrorBody: "+response.errorBody());
                                 mProcesoTerminado.postValue(true);
                             }
                         }

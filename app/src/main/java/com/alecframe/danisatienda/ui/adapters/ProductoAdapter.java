@@ -78,9 +78,8 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
 
         if (producto.getFoto()!=null) {
             Glide.with(context)
-                    .load(ApiClient.BASE_URL + producto.getFoto())
-                    .into(holder.foto
-                    );
+                    .load(UtilsD.getURLImagen("productos",producto.getFoto()))
+                    .into(holder.foto);
         } else {
             if (categoria!=null) {
                 holder.foto.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));
@@ -97,7 +96,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             holder.estado.setVisibility(INVISIBLE);
         }
 
-        holder.verDetalle.setOnClickListener(v -> {
+        holder.card.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("producto", producto);
             Navigation.findNavController(v)
@@ -119,7 +118,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         TextView stock;
         TextView advertencia;
         TextView estado;
-        Button verDetalle;
         CardView card;
         public ProductoCardHolder(@NonNull View itemView) {
             super(itemView);
@@ -131,7 +129,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             stock = itemView.findViewById(R.id.tvCardProductoStock);
             advertencia = itemView.findViewById(R.id.tvCardProductoSinStockAdvertencia);
             estado = itemView.findViewById(R.id.tvCardProductoActivo);
-            verDetalle = itemView.findViewById(R.id.btCardProductoVerDetalle);
             card = itemView.findViewById(R.id.cardProductoAdapter);
         }
     }

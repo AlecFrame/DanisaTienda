@@ -108,17 +108,18 @@
                     app:layout_constraintStart_toStartOf="@+id/btCategoriaCambiarImagen"
                     app:layout_constraintTop_toBottomOf="@+id/btCategoriaCambiarImagen" />
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivCategoriaFotoEditar"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/button_white_transparent"
-                    android:paddingHorizontal="10dp"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/remove_24px"
                     app:tint="#91000000"
                     app:layout_constraintBottom_toBottomOf="@+id/btCategoriaCambiarColor"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/RectangleImage" />
 
                 <Button
                     android:id="@+id/btCategoriaCambiarImagen"
@@ -159,18 +160,19 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivCategoriaFotoVer"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/button_white_transparent"
-                android:paddingHorizontal="10dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/remove_24px"
                 app:tint="#91000000"
                 app:layout_constraintBottom_toBottomOf="@+id/clEditarCategoriaSuperior"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/clEditarCategoriaSuperior" />
+                app:layout_constraintTop_toTopOf="@+id/clEditarCategoriaSuperior"
+                app:shapeAppearanceOverlay="@style/RectangleImage" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etCategoriaNombre"

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -78,9 +79,8 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
 
         if (producto.getFoto()!=null) {
             Glide.with(context)
-                    .load(ApiClient.BASE_URL + producto.getFoto())
-                    .into(holder.foto
-                    );
+                    .load(UtilsD.getURLImagen("productos",producto.getFoto()))
+                    .into(holder.foto);
         } else {
             if (categoria!=null) {
                 holder.foto.setBackgroundTintList(ColorStateList.valueOf(categoria.getColor()));
@@ -96,13 +96,15 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
         holder.estado.setVisibility(INVISIBLE);
 
         holder.card.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("producto", producto);
-            Navigation.findNavController(v)
-                    .navigate(R.id.action_carritoProductoFragment_to_carritoDetalleFragment, bundle);
+            if (producto.getStock()>0) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("producto", producto);
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_carritoProductoFragment_to_carritoDetalleFragment, bundle);
+            }else {
+                Toast.makeText(context, "Este producto no posee stock", Toast.LENGTH_SHORT).show();
+            }
         });
-
-        holder.verDetalle.setVisibility(INVISIBLE);
     }
 
     @Override
@@ -119,7 +121,6 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
         TextView stock;
         TextView advertencia;
         TextView estado;
-        Button verDetalle;
         CardView card;
         public ProductoCardHolder(@NonNull View itemView) {
             super(itemView);
@@ -131,7 +132,6 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
             stock = itemView.findViewById(R.id.tvCardProductoStock);
             advertencia = itemView.findViewById(R.id.tvCardProductoSinStockAdvertencia);
             estado = itemView.findViewById(R.id.tvCardProductoActivo);
-            verDetalle = itemView.findViewById(R.id.btCardProductoVerDetalle);
             card = itemView.findViewById(R.id.cardProductoAdapter);
         }
     }
