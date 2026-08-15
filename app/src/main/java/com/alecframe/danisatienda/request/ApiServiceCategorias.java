@@ -49,7 +49,8 @@ public interface ApiServiceCategorias {
             @Part("drawable") RequestBody drawable,
             @Part("color") RequestBody color,
             @Part("nombre") RequestBody nombre,
-            @Part("ejemplos") RequestBody ejemplos
+            @Part("ejemplos") RequestBody ejemplos,
+            @Part("usuario") RequestBody usuario
     );
     @PUT("api/categorias/{id}") // PUT /categorias/5
     Call<Categoria> actualizarCategoria(

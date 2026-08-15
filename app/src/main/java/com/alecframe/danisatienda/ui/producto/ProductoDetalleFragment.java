@@ -211,13 +211,7 @@ public class ProductoDetalleFragment extends Fragment {
                     .into(b.fotoProductoDetalleVer);
         }
 
-        if (unidad.equals("Gramo")) {
-            b.etProductoStock.setHint("Stock en gramos");
-            b.etProductoStockMinimo.setHint("Stock mínimo en gramos");
-        }else {
-            b.etProductoStock.setHint("Stock actual");
-            b.etProductoStockMinimo.setHint("Stock mínimo");
-        }
+        cambioGramoUnidad();
 
         b.tvProductoUnidad.setText(unidad);
     }
@@ -242,6 +236,17 @@ public class ProductoDetalleFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
     }
+    private void cambioGramoUnidad() {
+        if (unidad.equals("Gramo")) {
+            b.etProductoPrecio.setHint("Precio por los 1000 gramos");
+            b.etProductoStock.setHint("Stock en gramos");
+            b.etProductoStockMinimo.setHint("Stock mínimo en gramos");
+        } else {
+            b.etProductoPrecio.setHint("Precio por una unidad");
+            b.etProductoStock.setHint("Stock actual");
+            b.etProductoStockMinimo.setHint("Stock mínimo");
+        }
+    }
     private void spinnerUnidad() {
         SpinnerUnidadAdapter adapter = new SpinnerUnidadAdapter(getContext(), DListas.TIPOS_UNDIADES);
         b.spProductoUnidades.setAdapter(adapter);
@@ -252,15 +257,7 @@ public class ProductoDetalleFragment extends Fragment {
                 if (spinnerUnidadIndex!=position) {
                     spinnerUnidadIndex = position;
                     unidad = (String) parent.getItemAtPosition(position);
-                    if (unidad.equals("Gramo")) {
-                        b.etProductoStock.setHint("Stock en gramos");
-                        b.etProductoStockMinimo.setHint("Stock mínimo en gramos");
-                        Log.d("ProductoDetalle", "Gramo, hint: " + b.etProductoStockInput.getHint());
-                    } else {
-                        b.etProductoStock.setHint("Stock actual");
-                        b.etProductoStockMinimo.setHint("Stock mínimo");
-                        Log.d("ProductoDetalle", "Unidad, hint: " + b.etProductoStockInput.getHint());
-                    }
+                    cambioGramoUnidad();
                     comprobarCambios();
                 }
             }

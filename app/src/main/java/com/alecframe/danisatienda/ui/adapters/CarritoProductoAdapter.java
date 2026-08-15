@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alecframe.danisatienda.R;
 import com.alecframe.danisatienda.model.Categoria;
 import com.alecframe.danisatienda.model.Producto;
-import com.alecframe.danisatienda.request.ApiClient;
 import com.alecframe.danisatienda.utils.Iconos;
 import com.alecframe.danisatienda.utils.UtilsD;
 import com.bumptech.glide.Glide;
@@ -55,7 +53,6 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
         Categoria categoria = producto.getCategoria();
 
         holder.nombre.setText(producto.getNombre());
-        holder.descripcion.setText(producto.getDescripcion());
         holder.precio.setText(UtilsD.decimalFormat(producto.getPrecio()));
         if (producto.getUnidad().equals("Gramo")) {
             holder.stock.setText(producto.getStock() +"g");
@@ -115,7 +112,6 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
     public static class ProductoCardHolder extends RecyclerView.ViewHolder{
         ImageView foto;
         TextView nombre;
-        TextView descripcion;
         TextView categoria;
         TextView precio;
         TextView stock;
@@ -126,7 +122,6 @@ public class CarritoProductoAdapter extends RecyclerView.Adapter<CarritoProducto
             super(itemView);
             foto =  itemView.findViewById(R.id.ivCardProductoFoto);
             nombre = itemView.findViewById(R.id.tvCardProductoNombre);
-            descripcion = itemView.findViewById(R.id.tvCardProductoDescripcion);
             categoria =  itemView.findViewById(R.id.tvCardProductoCategoria);
             precio =  itemView.findViewById(R.id.tvCardProductoPrecio);
             stock = itemView.findViewById(R.id.tvCardProductoStock);

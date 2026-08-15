@@ -130,6 +130,7 @@ public class ProductoNuevoViewModel extends AndroidViewModel {
                     RequestBody costoCompraBody = RequestBody.create(costoCompraS, MultipartBody.FORM);
                     RequestBody stockBody = RequestBody.create(stockS, MultipartBody.FORM);
                     RequestBody stockBajoBody = RequestBody.create(stockBajoS, MultipartBody.FORM);
+                    RequestBody usuario = RequestBody.create(ApiClient.USUARIO, MultipartBody.FORM);
 
                     Call<Producto> call = servicio.crearProductoConFoto(
                             foto,
@@ -140,7 +141,8 @@ public class ProductoNuevoViewModel extends AndroidViewModel {
                             precioBody,
                             costoCompraBody,
                             stockBody,
-                            stockBajoBody
+                            stockBajoBody,
+                            usuario
                     );
 
                     Log.d("CREAR PRODUCTO", "URI NULL");

@@ -8,10 +8,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.alecframe.danisatienda.model.Alias;
 import com.alecframe.danisatienda.model.Auditoria;
 import com.alecframe.danisatienda.request.ApiClient;
-import com.alecframe.danisatienda.request.ApiServiceAlias;
 import com.alecframe.danisatienda.request.ApiServiceAuditorias;
 
 import java.time.LocalDate;

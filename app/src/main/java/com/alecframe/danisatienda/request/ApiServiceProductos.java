@@ -49,7 +49,8 @@ public interface ApiServiceProductos {
             @Part("precio") RequestBody precio,
             @Part("costoCompra") RequestBody costoCompra,
             @Part("stock") RequestBody stock,
-            @Part("stockBajo") RequestBody stockBajo
+            @Part("stockBajo") RequestBody stockBajo,
+            @Part("usuario") RequestBody usuario
     );
     @PUT("api/productos/{id}") // PUT /productos/5
     Call<Producto> actualizarProducto(

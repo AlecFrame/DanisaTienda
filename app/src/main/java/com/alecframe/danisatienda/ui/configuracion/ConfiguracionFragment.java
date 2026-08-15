@@ -55,6 +55,8 @@ public class ConfiguracionFragment extends Fragment {
                 b.tvConfigConexion.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.blue)));
                 b.tvConfigConexion.setText("Resultado extraño");
             }
+
+            b.tvConfigUsuarioPresent.setText(ApiClient.USUARIO);
         });
 
         aplicarCambios();
@@ -73,6 +75,7 @@ public class ConfiguracionFragment extends Fragment {
     }
 
     private void aplicarCambios() {
+        b.tvConfigUsuarioPresent.setText(ApiClient.USUARIO);
         b.etConfigUrlServidorInput.setText(ApiClient.BASE_URL);
         b.etConfigUsuarioInput.setText(ApiClient.USUARIO);
     }

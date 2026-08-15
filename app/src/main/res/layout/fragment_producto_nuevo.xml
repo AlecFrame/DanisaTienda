@@ -70,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:enabled="true"
+                    android:visibility="invisible"
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
@@ -95,12 +96,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
                     android:layout_marginStart="1dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="1dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etProductoNuevoDescripcion" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvProductoNuevoCategoriaInicio" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/etProductoNuevoPrecio"
@@ -109,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:enabled="true"
+                    android:hint="Precio"
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
@@ -125,7 +127,6 @@
                         android:id="@+id/etProductoNuevoPrecioInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Precio"
                         android:inputType="number"
                         android:textColor="@color/black_blue" />
                 </com.google.android.material.textfield.TextInputLayout>

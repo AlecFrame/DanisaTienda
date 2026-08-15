@@ -42,7 +42,6 @@ public class MainViewModel extends AndroidViewModel {
                     mAlias.postValue(response.body());
                 } else {
                     mAlias.postValue(null);
-                    Log.d("CARGAR ALIAS", "Error: "+response.message());
                 }
             }
             @Override

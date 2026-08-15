@@ -26,7 +26,6 @@
             android:background="@drawable/button_white_transparent"
             android:scaleType="centerCrop"
             android:src="@drawable/remove_24px"
-            app:layout_constraintBottom_toBottomOf="@+id/tvCardProductoCategoria"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/RectangleImage" />
@@ -55,8 +54,8 @@
             android:text="Categoría"
             android:textColor="#9C000000"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/tvCardProductoDescripcion"
-            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoDescripcion" />
+            app:layout_constraintStart_toStartOf="@+id/tvCardProductoNombre"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoNombre" />
 
         <TextView
             android:id="@+id/tvCardProductoPrecio"
@@ -71,7 +70,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoCategoria" />
+            app:layout_constraintTop_toBottomOf="@+id/ivCardProductoFoto" />
 
         <TextView
             android:id="@+id/tvCardProductoStock"
@@ -117,15 +116,6 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/tvCardProductoDescripcion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Descripcion del producto"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvCardProductoNombre"
-            app:layout_constraintTop_toBottomOf="@+id/tvCardProductoNombre" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

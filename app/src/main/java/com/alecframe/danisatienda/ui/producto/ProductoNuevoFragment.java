@@ -119,7 +119,17 @@ public class ProductoNuevoFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
     }
-
+    private void cambioGramoUnidad() {
+        if (unidad.equals("Gramo")) {
+            b.etProductoNuevoPrecio.setHint("Precio por los 1000 gramos");
+            b.etProductoNuevoStock.setHint("Stock en gramos");
+            b.etProductoNuevoStockMinimo.setHint("Stock mínimo en gramos");
+        } else {
+            b.etProductoNuevoPrecio.setHint("Precio por una unidad");
+            b.etProductoNuevoStock.setHint("Stock actual");
+            b.etProductoNuevoStockMinimo.setHint("Stock mínimo");
+        }
+    }
     private void spinnerUnidad() {
         SpinnerUnidadAdapter adapter = new SpinnerUnidadAdapter(getContext(), DListas.TIPOS_UNDIADES);
         b.spProductoNuevoUnidades.setAdapter(adapter);
@@ -128,13 +138,7 @@ public class ProductoNuevoFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 unidad = (String) parent.getItemAtPosition(position);
-                if (unidad.equals("Gramo")) {
-                    b.etProductoNuevoStock.setHint("Stock en gramos");
-                    b.etProductoNuevoStockMinimo.setHint("Stock mínimo en gramos");
-                }else {
-                    b.etProductoNuevoStock.setHint("Stock actual");
-                    b.etProductoNuevoStockMinimo.setHint("Stock mínimo");
-                }
+                cambioGramoUnidad();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}

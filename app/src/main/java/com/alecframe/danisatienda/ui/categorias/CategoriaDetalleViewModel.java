@@ -136,13 +136,15 @@ public class CategoriaDetalleViewModel extends AndroidViewModel {
                     RequestBody colorBody = RequestBody.create(String.valueOf(color), MultipartBody.FORM);
                     RequestBody nombreBody = RequestBody.create(nombre, MultipartBody.FORM);
                     RequestBody ejemplosBody = RequestBody.create(ejemplos, MultipartBody.FORM);
+                    RequestBody usuario = RequestBody.create(ApiClient.USUARIO, MultipartBody.FORM);
 
                     Call<Categoria> call = servicio.crearCategoriaConFoto(
                             foto,
                             drawableBody,
                             colorBody,
                             nombreBody,
-                            ejemplosBody
+                            ejemplosBody,
+                            usuario
                     );
 
                     Log.d("CREAR CATEGORIA", "URI NULL");

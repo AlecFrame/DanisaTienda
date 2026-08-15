@@ -33,9 +33,8 @@ public class CarritoViewModel extends AndroidViewModel {
     private final MutableLiveData<List<Alias>> mListaAlias = new MutableLiveData<>();
     private final MutableLiveData<Integer> mIdAlias = new MutableLiveData<>();
     private final MutableLiveData<String> mTipoPago = new MutableLiveData<>("Efectivo");
-    private final MutableLiveData<Double> mMontoTotal = new MutableLiveData<>();
+    private MutableLiveData<Double> mMontoTotal = new MutableLiveData<>();
     private final MutableLiveData<Boolean> mBack = new MutableLiveData<>();
-    private final MutableLiveData<Boolean> mBackCarrito = new MutableLiveData<>();
 
 
     public CarritoViewModel(@NonNull Application application) {
@@ -70,14 +69,8 @@ public class CarritoViewModel extends AndroidViewModel {
     public LiveData<Boolean> getBack() {
         return mBack;
     }
-    public LiveData<Boolean> getBackCarrito() {
-        return mBackCarrito;
-    }
     public void setBack(boolean back) {
         mBack.setValue(back);
-    }
-    public void setBackCarrito(boolean back) {
-        mBackCarrito.setValue(back);
     }
     public void cambiarIdAlias(Integer idAlias) {
         mIdAlias.setValue(idAlias);
@@ -201,7 +194,6 @@ public class CarritoViewModel extends AndroidViewModel {
         }
     }
 
-
     public void registrarVenta(String montoTotalS) {
         if (montoTotalS.isBlank()) {
             mToastMessage.postValue("No se encontro el monto total"); return;
@@ -209,8 +201,10 @@ public class CarritoViewModel extends AndroidViewModel {
         if (mTipoPago.getValue()==null) {
             mToastMessage.postValue("No se encontro el tipo de Pago"); return;
         }
-        if (mIdAlias.getValue()==null) {
-            mToastMessage.postValue("No se encontro el alias"); return;
+        if (mTipoPago.getValue().equals("Transferencia")) {
+            if (mIdAlias.getValue() == null) {
+                mToastMessage.postValue("No se encontro el alias"); return;
+            }
         }
         if (mListaDetalles.getValue()==null) {
             mToastMessage.postValue("No se encontraron los detalles"); return;
@@ -238,7 +232,6 @@ public class CarritoViewModel extends AndroidViewModel {
             public void onResponse(Call<Venta> call, Response<Venta> response) {
                 if (response.isSuccessful()) {
                     mVenta.postValue(response.body());
-                    mBackCarrito.postValue(true);
                 } else {
                     mToastMessage.postValue("Error al registrar la venta");
                     Log.d("CREAR VENTA", "Error: "+response.message());
@@ -251,5 +244,14 @@ public class CarritoViewModel extends AndroidViewModel {
                 Log.d("CREAR VENTA ERROR", "DRAWABLE: throwable: "+t);
             }
         });
+    }
+
+    public void limpiarCarrito() {
+        mCarrito.setValue(new Carrito());
+        mVenta.setValue(null);
+        mListaDetalles.setValue(new ArrayList<>());
+        mListaProductosEnCarrito.setValue(new ArrayList<>());
+        mTipoPago.setValue("Efectivo");
+        mMontoTotal = new MutableLiveData<>();
     }
 }

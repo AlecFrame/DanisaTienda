@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alecframe.danisatienda.R;
 import com.alecframe.danisatienda.model.Categoria;
 import com.alecframe.danisatienda.model.Producto;
-import com.alecframe.danisatienda.request.ApiClient;
 import com.alecframe.danisatienda.request.ReporteProducto;
 import com.alecframe.danisatienda.utils.Iconos;
 import com.alecframe.danisatienda.utils.UtilsD;
@@ -25,9 +24,9 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class ReporteProductoAdapter extends RecyclerView.Adapter<ReporteProductoAdapter.ReporteProductoCardHolder>{
-    private List<ReporteProducto> reporteProductos;
-    private Context context;
-    private LayoutInflater layoutInflater;
+    private final List<ReporteProducto> reporteProductos;
+    private final Context context;
+    private final LayoutInflater layoutInflater;
 
     public ReporteProductoAdapter(List<ReporteProducto> reporteProductos, Context context, LayoutInflater layoutInflater) {
         this.reporteProductos = reporteProductos;
@@ -52,9 +51,10 @@ public class ReporteProductoAdapter extends RecyclerView.Adapter<ReporteProducto
         holder.top.setText("#"+(position+1));
         holder.nombre.setText(producto.getNombre());
         if (producto.getUnidad().equals("Gramo")) {
-            holder.unidades.setText(reporte.getCantidadVendida()+ ((reporte.getCantidadVendida()==1)? " gramo":" gramos") );
+            holder.unidades.setText(UtilsD.decimalFormat(reporte.getCantidadVendida()) + " kg");
         }else
-         holder.unidades.setText(reporte.getCantidadVendida()+ ((reporte.getCantidadVendida()==1)? " unidad":" unidades") );
+         holder.unidades.setText(UtilsD.decimalFormat(reporte.getCantidadVendida())+
+                 ((reporte.getCantidadVendida()==1)? " unidad":" unidades") );
 
         if (producto.getFoto()!=null) {
             Glide.with(context)

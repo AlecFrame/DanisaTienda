@@ -128,7 +128,6 @@ public class Producto implements Serializable {
     public String getUsuario() {
         return usuario;
     }
-
     public double getCostoCompra() {
         return costoCompra;
     }

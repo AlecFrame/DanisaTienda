@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +21,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alecframe.danisatienda.R;
 import com.alecframe.danisatienda.model.Categoria;
 import com.alecframe.danisatienda.model.Producto;
-import com.alecframe.danisatienda.request.ApiClient;
 import com.alecframe.danisatienda.utils.Iconos;
 import com.alecframe.danisatienda.utils.UtilsD;
 import com.bumptech.glide.Glide;
@@ -30,9 +28,9 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoCardHolder>{
-    private List<Producto> productos;
-    private Context context;
-    private LayoutInflater layoutInflater;
+    private final List<Producto> productos;
+    private final Context context;
+    private final LayoutInflater layoutInflater;
 
     public ProductoAdapter(List<Producto> productos, Context context, LayoutInflater layoutInflater) {
         this.productos = productos;
@@ -54,7 +52,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         Categoria categoria = producto.getCategoria();
 
         holder.nombre.setText(producto.getNombre());
-        holder.descripcion.setText(producto.getDescripcion());
         holder.precio.setText(UtilsD.decimalFormat(producto.getPrecio()));
         if (producto.getUnidad().equals("Gramo")) {
             holder.stock.setText(producto.getStock() +"g");
@@ -112,7 +109,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
     public class ProductoCardHolder extends RecyclerView.ViewHolder{
         ImageView foto;
         TextView nombre;
-        TextView descripcion;
         TextView categoria;
         TextView precio;
         TextView stock;
@@ -123,7 +119,6 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             super(itemView);
             foto =  itemView.findViewById(R.id.ivCardProductoFoto);
             nombre = itemView.findViewById(R.id.tvCardProductoNombre);
-            descripcion = itemView.findViewById(R.id.tvCardProductoDescripcion);
             categoria =  itemView.findViewById(R.id.tvCardProductoCategoria);
             precio =  itemView.findViewById(R.id.tvCardProductoPrecio);
             stock = itemView.findViewById(R.id.tvCardProductoStock);

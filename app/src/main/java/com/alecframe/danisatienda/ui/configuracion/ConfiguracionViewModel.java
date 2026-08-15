@@ -43,11 +43,9 @@ public class ConfiguracionViewModel extends AndroidViewModel {
 
                 if(response.isSuccessful()){
                     try {
-                        mToastMessage.postValue("Servidor conectado");
                         mConexionServidor.setValue(1);
                         Log.d("API", response.body().string());
                     } catch (Exception e){
-                        mToastMessage.postValue("Error fallo del servidor");
                         mConexionServidor.setValue(3);
                         e.printStackTrace();
                     }
@@ -56,7 +54,6 @@ public class ConfiguracionViewModel extends AndroidViewModel {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                mToastMessage.postValue("Error servidor no conectado");
                 mConexionServidor.setValue(0);
                 Log.e("API", "Error: " + t.getMessage());
             }

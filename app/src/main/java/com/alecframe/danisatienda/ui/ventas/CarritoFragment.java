@@ -67,9 +67,9 @@ public class CarritoFragment extends Fragment {
         });
         vm.cargarSpinnerAlias();
 
-        vm.getBackCarrito().observe(getViewLifecycleOwner(), back -> {
-            if (back) {
-                vm.setBackCarrito(false);
+        vm.getVenta().observe(getViewLifecycleOwner(), venta -> {
+            if (venta!=null) {
+                vm.limpiarCarrito();
                 Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main)
                         .popBackStack(R.id.ventasFragment, false);
             }

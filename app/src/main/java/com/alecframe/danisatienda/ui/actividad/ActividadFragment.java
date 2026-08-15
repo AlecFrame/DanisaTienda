@@ -57,10 +57,10 @@ public class ActividadFragment extends Fragment {
             GridLayoutManager glm = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false);
             if (!list.isEmpty()) {
                 b.tvCargandoHistorial.setVisibility(INVISIBLE);
-                b.tvCargandoHistorial.setText("Cargando Ventas...");
+                b.tvCargandoHistorial.setText("Cargando Historial...");
             }else {
                 b.tvCargandoHistorial.setVisibility(VISIBLE);
-                b.tvCargandoHistorial.setText("No hay Ventas cargadas");
+                b.tvCargandoHistorial.setText("No hay Historial cargado");
             }
             b.rvHistorial.setLayoutManager(glm);
             b.rvHistorial.setAdapter(adapter);

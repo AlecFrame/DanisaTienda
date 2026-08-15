@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class ReporteProducto implements Serializable {
     private int idProducto;
-    private int cantidadVendida;
+    private double cantidadVendida;
     private Producto producto;
 
     public ReporteProducto() {
     }
 
-    public ReporteProducto(int idProducto, int cantidadVendida, Producto producto) {
+    public ReporteProducto(int idProducto, double cantidadVendida, Producto producto) {
         this.idProducto = idProducto;
         this.cantidadVendida = cantidadVendida;
         this.producto = producto;
@@ -26,11 +26,11 @@ public class ReporteProducto implements Serializable {
         this.idProducto = idProducto;
     }
 
-    public int getCantidadVendida() {
+    public double getCantidadVendida() {
         return cantidadVendida;
     }
 
-    public void setCantidadVendida(int cantidadVendida) {
+    public void setCantidadVendida(double cantidadVendida) {
         this.cantidadVendida = cantidadVendida;
     }
 
