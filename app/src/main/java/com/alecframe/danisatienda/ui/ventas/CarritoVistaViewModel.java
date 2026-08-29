@@ -55,7 +55,7 @@ public class CarritoVistaViewModel extends AndroidViewModel {
     public void cargarDetalles() {
         Venta venta = mVenta.getValue();
         if (venta!=null) {
-            ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+            ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
             Call<List<CarritoDetalle>> call = servicio.obtenerDetallesDeCarrito(venta.getIdCarrito());
             call.enqueue(new Callback<>() {
@@ -85,7 +85,7 @@ public class CarritoVistaViewModel extends AndroidViewModel {
     public void activarVenta() {
         Venta venta = mVenta.getValue();
         if (venta!=null) {
-            ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+            ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
             Call<Map<String, String>> call = servicio.activarVenta(venta.getIdVenta(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {
@@ -116,7 +116,7 @@ public class CarritoVistaViewModel extends AndroidViewModel {
     public void desactivarVenta() {
         Venta venta = mVenta.getValue();
         if (venta!=null) {
-            ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+            ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
             Call<Map<String, String>> call = servicio.desactivarVenta(venta.getIdVenta(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {

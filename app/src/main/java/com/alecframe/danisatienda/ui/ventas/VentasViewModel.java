@@ -81,7 +81,7 @@ public class VentasViewModel extends AndroidViewModel {
         mFechaMode.setValue(fechaMode);
     }
     public void cargarLista() {
-        ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+        ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
         String fechaDesde = null;
         String fechaHasta = null;
@@ -129,7 +129,7 @@ public class VentasViewModel extends AndroidViewModel {
         });
     }
     public void cargarSpinnerAlias() {
-        ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+        ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
         Call<List<Alias>> call = servicio.obtenerTodosLosAlias(1);
         call.enqueue(new Callback<>() {

@@ -31,7 +31,7 @@ public class ConfiguracionViewModel extends AndroidViewModel {
         return mConexionServidor;
     }
     public void probarServidor() {
-        ApiService api = ApiClient.getApiService();
+        ApiService api = ApiClient.getApiService(getApplication());
 
         mConexionServidor.setValue(2);
 

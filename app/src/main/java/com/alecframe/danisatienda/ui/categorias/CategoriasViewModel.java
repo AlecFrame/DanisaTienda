@@ -38,7 +38,7 @@ public class CategoriasViewModel extends AndroidViewModel {
         mEstado.setValue(estado);
     }
     public void cargarLista() {
-        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
         Call<List<Categoria>> call = servicio.filtrarPorEstado(mEstado.getValue());
         call.enqueue(new Callback<>() {

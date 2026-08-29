@@ -31,7 +31,7 @@ public class Iconos {
             new Icono("Frío", R.drawable.snowflake_24px, "snowflake_24px"),
             new Icono("Nevera", R.drawable.kitchen_24px, "kitchen_24px"),
             new Icono("Fuego", R.drawable.local_fire_department_24px, "local_fire_department_24px"),
-            new Icono("Horno", R.drawable.oven_24px, "local_fire_department_24px"),
+            new Icono("Horno", R.drawable.oven_24px, "oven_24px"),
             new Icono("Caliente", R.drawable.onsen_24px, "onsen_24px"),
             new Icono("Lapiz", R.drawable.edit_24px, "edit_24px"),
             new Icono("Pintura", R.drawable.palette_24px, "palette_24px"),

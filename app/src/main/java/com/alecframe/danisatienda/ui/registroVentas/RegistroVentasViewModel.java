@@ -51,7 +51,7 @@ public class RegistroVentasViewModel extends AndroidViewModel {
         mFechaHasta.setValue(fechaHasta);
     }
     public void cargarReporte() {
-        ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+        ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
         String fechaDesde = null;
         String fechaHasta = null;

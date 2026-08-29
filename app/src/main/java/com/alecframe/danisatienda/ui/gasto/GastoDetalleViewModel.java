@@ -49,7 +49,7 @@ public class GastoDetalleViewModel extends AndroidViewModel {
                 nuevoGasto.setCategoria(categoria);
                 nuevoGasto.setMonto(monto);
 
-                ApiServiceGastos servicio = ApiClient.getApiServiceGastos();
+                ApiServiceGastos servicio = ApiClient.getApiServiceGastos(getApplication());
 
                 Call<Gasto> call = servicio.crearGasto(nuevoGasto);
                 call.enqueue(new Callback<>() {

@@ -12,20 +12,29 @@ public class Auditoria implements Serializable {
     private String accion;
     private String descripcion;
     private Instant fecha;
-    private String usuario;
     private String datoExtra;
+    private int idUsuario;
+    private Usuario usuario;
     public Auditoria() {
     }
-
-    public Auditoria(int idAuditoria, int idEntidad, String entidad, String accion, String descripcion, Instant fecha, String usuario, String datoExtra) {
+    public Auditoria(int idAuditoria, int idEntidad, String entidad, String accion, String descripcion, Instant fecha, String datoExtra, int idUsuario, Usuario usuario) {
         this.idAuditoria = idAuditoria;
         this.idEntidad = idEntidad;
         this.entidad = entidad;
         this.accion = accion;
         this.descripcion = descripcion;
         this.fecha = fecha;
-        this.usuario = usuario;
         this.datoExtra = datoExtra;
+        this.idUsuario = idUsuario;
+        this.usuario = usuario;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public int getIdAuditoria() {
@@ -76,11 +85,11 @@ public class Auditoria implements Serializable {
         this.fecha = fecha;
     }
 
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

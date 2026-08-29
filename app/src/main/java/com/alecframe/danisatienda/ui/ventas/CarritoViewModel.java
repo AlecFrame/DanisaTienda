@@ -91,7 +91,7 @@ public class CarritoViewModel extends AndroidViewModel {
         }
     }
     public void cargarSpinnerAlias() {
-        ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+        ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
         Call<List<Alias>> call = servicio.obtenerTodosLosAlias(1);
         call.enqueue(new Callback<>() {
@@ -217,7 +217,7 @@ public class CarritoViewModel extends AndroidViewModel {
             idAlias = null;
         }
 
-        ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+        ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
         CrearVentaRequest request = new CrearVentaRequest(
                 mTipoPago.getValue(),

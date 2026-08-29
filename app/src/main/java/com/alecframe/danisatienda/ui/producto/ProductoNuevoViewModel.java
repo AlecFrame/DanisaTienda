@@ -61,7 +61,7 @@ public class ProductoNuevoViewModel extends AndroidViewModel {
         return mProcesoTerminado;
     }
     public void cargarSpinnerCategorias() {
-        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
         Call<List<Categoria>> call = servicio.filtrarPorEstado(1);
         call.enqueue(new Callback<>() {
@@ -118,7 +118,7 @@ public class ProductoNuevoViewModel extends AndroidViewModel {
                 }else
                     nuevoProducto.setDescripcion(descripcion);
 
-                ApiServiceProductos servicio = ApiClient.getApiServiceProductos();
+                ApiServiceProductos servicio = ApiClient.getApiServiceProductos(getApplication());
 
                 if (mFotoUri.getValue() != null) {
                     MultipartBody.Part foto = crearParteFoto(mFotoUri.getValue());

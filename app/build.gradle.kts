@@ -35,6 +35,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.activity.ktx)
     implementation(libs.ambilwarna)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)

@@ -40,5 +40,9 @@
             android:id="@+id/configuracionFragment"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="Configuración" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout_24px"
+            android:title="Cerrar sesión" />
     </group>
 </menu>

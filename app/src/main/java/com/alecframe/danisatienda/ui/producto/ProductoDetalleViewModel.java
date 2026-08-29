@@ -70,7 +70,7 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
         mCategoria.setValue(categoria);
     }
     public void cargarSpinnerCategorias() {
-        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
         Call<List<Categoria>> call = servicio.filtrarPorEstado(1);
         call.enqueue(new Callback<>() {
@@ -140,7 +140,7 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
         mViewMode.setValue(viewMode);
     }
     public void cargarCategoria(int idCategoria) {
-        ApiServiceCategorias api = ApiClient.getApiServiceCategorias();
+        ApiServiceCategorias api = ApiClient.getApiServiceCategorias(getApplication());
 
         Call<Categoria> calls = api.obtenerCategoria(idCategoria);
 
@@ -206,7 +206,7 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
                 }else
                     nuevoProducto.setDescripcion(descripcion);
 
-                ApiServiceProductos servicio = ApiClient.getApiServiceProductos();
+                ApiServiceProductos servicio = ApiClient.getApiServiceProductos(getApplication());
 
                 if (mFotoUri.getValue() != null) {
                     MultipartBody.Part foto = crearParteFoto(mFotoUri.getValue());
@@ -287,7 +287,7 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
     public void activarCategoria() {
         Producto producto = mProducto.getValue();
         if (producto!=null) {
-            ApiServiceProductos servicio = ApiClient.getApiServiceProductos();
+            ApiServiceProductos servicio = ApiClient.getApiServiceProductos(getApplication());
 
             Call<Map<String, String>> call = servicio.activarProducto(producto.getIdProducto(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {
@@ -319,7 +319,7 @@ public class ProductoDetalleViewModel extends AndroidViewModel {
     public void desactivarCategoria() {
         Producto producto = mProducto.getValue();
         if (producto!=null) {
-            ApiServiceProductos servicio = ApiClient.getApiServiceProductos();
+            ApiServiceProductos servicio = ApiClient.getApiServiceProductos(getApplication());
 
             Call<Map<String, String>> call = servicio.desactivarProducto(producto.getIdProducto(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {

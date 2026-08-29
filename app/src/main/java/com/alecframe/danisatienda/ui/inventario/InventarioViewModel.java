@@ -63,7 +63,7 @@ public class InventarioViewModel extends AndroidViewModel {
         mStockOrden.setValue(stockOrden);
     }
     public void cargarSpinnerCategorias() {
-        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+        ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
         Call<List<Categoria>> call = servicio.filtrarPorEstado(1);
         call.enqueue(new Callback<>() {
@@ -93,7 +93,7 @@ public class InventarioViewModel extends AndroidViewModel {
         });
     }
     public void cargarLista(String nombre) {
-        ApiServiceProductos servicio = ApiClient.getApiServiceProductos();
+        ApiServiceProductos servicio = ApiClient.getApiServiceProductos(getApplication());
         Integer idCategoria;
 
         if (nombre.isBlank()) { nombre = null; }

@@ -1,12 +1,14 @@
 package com.alecframe.danisatienda;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alecframe.danisatienda.databinding.ActivityMainBinding;
 import com.alecframe.danisatienda.request.ApiClient;
+import com.alecframe.danisatienda.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding b;
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 appBarConfiguration
         );
     }
+
     private void initDrawerMenu() {
         b.drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
@@ -94,12 +98,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
         b.navView.setNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_logout) {
+                showLogoutDialog();
+                return true;
+            }
             boolean handled = NavigationUI.onNavDestinationSelected(item, navController);
             if (handled) {
                 b.drawerLayout.closeDrawers();
             }
             return handled;
         });
+    }
+
+    private void showLogoutDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("¿Estás seguro que querés salir de la sesión?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    logout();
+                })
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .setCancelable(false)
+                .show();
+
+        b.drawerLayout.closeDrawers();
+    }
+    private void logout() {
+        ApiClient.eliminarCredenciales(getApplication());
+        Intent i = new Intent(MainActivity.this, LoginActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
     }
     @Override
     public boolean onSupportNavigateUp() {

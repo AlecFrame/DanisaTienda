@@ -65,7 +65,7 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.Hist
 
         holder.id.setText("Auditoría #"+auditoria.getIdAuditoria()+" - "+
                 auditoria.getEntidad()+" #"+auditoria.getIdEntidad());
-        holder.usuario.setText("usuario: "+auditoria.getUsuario());
+        holder.usuario.setText("usuario: "+auditoria.getUsuario().getNombre());
         holder.accion.setText("accion: "+auditoria.getAccion()+"_"+auditoria.getEntidad().toUpperCase());
         holder.descripcion.setText(auditoria.getDescripcion());
         holder.fecha.setText(UtilsD.getFechaEntera(auditoria.getFecha()));

@@ -60,7 +60,7 @@ public class GastosViewModel extends AndroidViewModel {
         mCategoria.setValue(categoria);
     }
     public void cargarLista(String descripcion) {
-        ApiServiceGastos servicio = ApiClient.getApiServiceGastos();
+        ApiServiceGastos servicio = ApiClient.getApiServiceGastos(getApplication());
         Integer idCategoria;
 
         String fechaDesde = null;

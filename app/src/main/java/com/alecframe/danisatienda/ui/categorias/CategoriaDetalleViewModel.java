@@ -128,7 +128,7 @@ public class CategoriaDetalleViewModel extends AndroidViewModel {
                 }else
                     nuevaCategoria.setEjemplos(ejemplos);
 
-                ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+                ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
                 if (mFotoUri.getValue() != null) {
                     MultipartBody.Part foto = crearParteFoto(mFotoUri.getValue());
@@ -229,7 +229,7 @@ public class CategoriaDetalleViewModel extends AndroidViewModel {
                 Log.d("ACTUALIZAR CATEGORIA", "Nombre: "+upperCaseFirstChar(nombre));
                 Log.d("ACTUALIZAR CATEGORIA", "Ejemplos: "+ejemplos);
 
-                ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+                ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
                 if (mFotoUri.getValue() != null) {
                     MultipartBody.Part foto = crearParteFoto(mFotoUri.getValue());
@@ -299,7 +299,7 @@ public class CategoriaDetalleViewModel extends AndroidViewModel {
     public void activarCategoria() {
         Categoria categoria = mCategoria.getValue();
         if (categoria!=null) {
-            ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+            ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
             Call<Map<String, String>> call = servicio.activarCategoria(categoria.getIdCategoria(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {
@@ -331,7 +331,7 @@ public class CategoriaDetalleViewModel extends AndroidViewModel {
     public void desactivarCategoria() {
         Categoria categoria = mCategoria.getValue();
         if (categoria!=null) {
-            ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias();
+            ApiServiceCategorias servicio = ApiClient.getApiServiceCategorias(getApplication());
 
             Call<Map<String, String>> call = servicio.desactivarCategoria(categoria.getIdCategoria(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {

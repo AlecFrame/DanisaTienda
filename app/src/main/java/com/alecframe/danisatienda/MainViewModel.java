@@ -31,7 +31,7 @@ public class MainViewModel extends AndroidViewModel {
         return mAlias;
     }
     public void cargarAlias() {
-        ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+        ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
         Call<Alias> call = servicio.obtenerAlias(1);
 

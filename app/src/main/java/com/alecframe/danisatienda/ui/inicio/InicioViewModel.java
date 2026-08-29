@@ -43,7 +43,7 @@ public class InicioViewModel extends AndroidViewModel {
         return mResumen;
     }
     public void cargarResumen() {
-        ApiServiceVentas servicio = ApiClient.getApiServiceVentas();
+        ApiServiceVentas servicio = ApiClient.getApiServiceVentas(getApplication());
 
         Call<ResumenVentas> call = servicio.obtenerResumen();
 
@@ -66,7 +66,7 @@ public class InicioViewModel extends AndroidViewModel {
         });
     }
     public void cargarListaProductos() {
-        ApiServiceProductos servicio = ApiClient.getApiServiceProductos();
+        ApiServiceProductos servicio = ApiClient.getApiServiceProductos(getApplication());
 
         Call<List<Producto>> call = servicio.obtenerProductosStockBajo();
 
@@ -89,7 +89,7 @@ public class InicioViewModel extends AndroidViewModel {
         });
     }
     public void cargarListaAcciones() {
-        ApiServiceAuditorias servicio = ApiClient.getApiServiceAuditorias();
+        ApiServiceAuditorias servicio = ApiClient.getApiServiceAuditorias(getApplication());
 
         Call<List<Auditoria>> call = servicio.listarAuditoriasRecientes();
 

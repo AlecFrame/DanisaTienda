@@ -74,7 +74,7 @@ public class AliasDetalleViewModel extends AndroidViewModel {
                 nuevoAlias.setBanco(banco);
                 nuevoAlias.setPropietario(propietario);
 
-                ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+                ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
                 Call<Alias> call = servicio.crearAlias(nuevoAlias);
                 call.enqueue(new Callback<>() {
@@ -122,7 +122,7 @@ public class AliasDetalleViewModel extends AndroidViewModel {
                 nuevoAlias.setPropietario(propietario);
                 nuevoAlias.setEstado(mAlias.getValue().getEstado());
 
-                ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+                ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
                 Call<Alias> call = servicio.actualizarAlias(mAlias.getValue().getIdAlias(), nuevoAlias);
                 call.enqueue(new Callback<>() {
@@ -156,7 +156,7 @@ public class AliasDetalleViewModel extends AndroidViewModel {
         Alias alias = mAlias.getValue();
 
         if (alias!=null) {
-            ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+            ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
             Call<Map<String, String>> call = servicio.activarAlias(alias.getIdAlias(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {
@@ -186,7 +186,7 @@ public class AliasDetalleViewModel extends AndroidViewModel {
         Alias alias = mAlias.getValue();
 
         if (alias != null) {
-            ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+            ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
             Call<Map<String, String>> call = servicio.desactivarAlias(alias.getIdAlias(), new BodyUsuarioRequest());
             call.enqueue(new Callback<>() {

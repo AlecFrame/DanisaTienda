@@ -68,7 +68,7 @@ public class ActividadViewModel extends AndroidViewModel {
         mFechaMode.setValue(fechaMode);
     }
     public void cargarLista(String usuario) {
-        ApiServiceAuditorias servicio = ApiClient.getApiServiceAuditorias();
+        ApiServiceAuditorias servicio = ApiClient.getApiServiceAuditorias(getApplication());
 
         if (usuario.isBlank()) {
             usuario = null;

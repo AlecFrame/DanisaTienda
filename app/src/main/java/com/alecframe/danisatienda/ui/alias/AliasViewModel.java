@@ -38,7 +38,7 @@ public class AliasViewModel extends AndroidViewModel {
         mEstado.setValue(estado);
     }
     public void cargarLista() {
-        ApiServiceAlias servicio = ApiClient.getApiServiceAlias();
+        ApiServiceAlias servicio = ApiClient.getApiServiceAlias(getApplication());
 
         Call<List<Alias>> call = servicio.obtenerTodosLosAlias(mEstado.getValue());
         call.enqueue(new Callback<>() {
